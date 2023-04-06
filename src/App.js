@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 import AddATask from './components/AddATask';
+import Tasks from './components/Tasks';
 
 function App() {
 
   const [input, setInput] = useState('');
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
  
   return (
     <div className="">
@@ -19,8 +20,12 @@ function App() {
         <AddATask 
           input={input}
           setInput={setInput}
-          task={task}
-          setTask={setTask}
+          tasks={tasks}
+          setTasks={setTasks}
+        />
+        <Tasks 
+          tasks={tasks}
+          setTasks={setTasks}
         />
       </div>
     </div>

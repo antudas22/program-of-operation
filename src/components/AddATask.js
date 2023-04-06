@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddATask = ({input, setInput, task, setTask}) => {
+const AddATask = ({input, setInput, tasks, setTasks}) => {
 
     const onInputChange = e => {
         setInput(e.target.value);
@@ -8,7 +8,7 @@ const AddATask = ({input, setInput, task, setTask}) => {
 
     const addATaskHandler = e => {
         e.preventDefault();
-        setInput([...task, {title: input, completed: false}]);
+        setTasks([...tasks, {title: input, completed: false}]);
         setInput('');
     }
 
