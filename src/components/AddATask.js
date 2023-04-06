@@ -1,4 +1,5 @@
 import React from 'react';
+import {v4 as uuidv4} from 'uuid';
 
 const AddATask = ({input, setInput, tasks, setTasks}) => {
 
@@ -8,7 +9,7 @@ const AddATask = ({input, setInput, tasks, setTasks}) => {
 
     const addATaskHandler = e => {
         e.preventDefault();
-        setTasks([...tasks, {title: input, completed: false}]);
+        setTasks([...tasks, {id: uuidv4(),title: input, completed: false}]);
         setInput('');
     }
 

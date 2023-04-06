@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import AddATask from './components/AddATask';
-import Tasks from './components/Tasks';
+import TasksList from './components/TasksList';
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
           tasks={tasks}
           setTasks={setTasks}
         />
-        <Tasks 
+        <TasksList 
           tasks={tasks}
           setTasks={setTasks}
         />
