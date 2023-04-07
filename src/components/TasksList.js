@@ -27,7 +27,7 @@ const TasksList = ({tasks, setTasks, setEditTask}) => {
 
     return (
         <div className=''>
-            <h3 className='text-center text-2xl font-bold my-8 underline'>Tasks: {tasks.length}</h3>
+            <h3 className='text-center text-2xl font-bold my-8 underline'>Program{tasks.length >1 && 's'}: {tasks.length}</h3>
             {
                 tasks.length === 0 ?
                 <h2 className='text-3xl font-bold text-center mt-20'>Please Add A Program!</h2>
