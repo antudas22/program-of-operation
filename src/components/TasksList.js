@@ -29,6 +29,11 @@ const TasksList = ({tasks, setTasks, setEditTask}) => {
         <div className=''>
             <h3 className='text-center text-2xl font-bold my-8 underline'>Tasks: {tasks.length}</h3>
             {
+                tasks.length === 0 ?
+                <h2 className='text-3xl font-bold text-center mt-20'>Please Add A Program!</h2>
+                :
+                <div>
+                    {
             tasks.map((task, i) => (
                 <li className='relative list-none' key={task.id}>
                     <div className='flex items-center'>
@@ -43,6 +48,9 @@ const TasksList = ({tasks, setTasks, setEditTask}) => {
             )
             )
             }
+                </div>
+            }
+            
         </div>
     );
 };
