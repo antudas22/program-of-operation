@@ -24,7 +24,8 @@ function App() {
       <div>
 
       </div>
-      <div className='min-h-[600px] w-[500px] bg-secondary mx-auto mt-10 rounded-2xl p-10'>
+      <div className='px-4'>
+      <div className='min-h-[600px] lg:w-[500px] bg-secondary mx-auto mt-10 rounded-2xl p-10'>
         <AddATask 
           input={input}
           setInput={setInput}
@@ -38,6 +39,7 @@ function App() {
           setTasks={setTasks}
           setEditTask={setEditTask}
         />
+      </div>
       </div>
     </div>
   );
