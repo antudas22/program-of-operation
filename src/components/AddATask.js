@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {v4 as uuidv4} from 'uuid';
 
-const AddATask = ({input, setInput, tasks, setTasks}) => {
+const AddATask = ({input, setInput, tasks, setTasks, editTask, setEditTask}) => {
+
+    const updateTask = (title, id, completed) => {
+        const newTask = tasks.map((task) =>
+            task.id === id ? {title, id, completed} : task
+        )
+        setTasks(newTask);
+        setEditTask('');
+    }
+
+    useEffect(() => {
+        if(editTask){
+            setInput(editTask.title);
+        }
+        else{
+            setInput('');
+        }
+    }, [setInput, editTask])
 
     const onInputChange = e => {
         setInput(e.target.value);
@@ -9,14 +26,23 @@ const AddATask = ({input, setInput, tasks, setTasks}) => {
 
     const addATaskHandler = e => {
         e.preventDefault();
-        setTasks([...tasks, {id: uuidv4(),title: input, completed: false}]);
-        setInput('');
+        if(!editTask){
+            setTasks([...tasks, {id: uuidv4(),title: input, completed: false}]);
+            setInput('');
+        }
+        else{
+            updateTask(input, editTask.id, editTask.completed)
+        }
     }
 
     return (
         <form onSubmit={addATaskHandler} className='flex justify-around'>
             <input type="text" placeholder="Add A Task..." className="input input-bordered w-full max-w-xs" value={input} required onChange={onInputChange}/>
-            <button className='btn'>Add</button>
+            <button className='btn'>
+                {
+                    editTask ? 'Done' : 'Add'
+                }
+            </button>
         </form>
     );
 };

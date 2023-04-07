@@ -7,6 +7,7 @@ function App() {
 
   const [input, setInput] = useState('');
   const [tasks, setTasks] = useState([]);
+  const [editTask, setEditTask] = useState(null);
  
   return (
     <div className="">
@@ -22,10 +23,13 @@ function App() {
           setInput={setInput}
           tasks={tasks}
           setTasks={setTasks}
+          editTask={editTask}
+          setEditTask={setEditTask}
         />
         <TasksList 
           tasks={tasks}
           setTasks={setTasks}
+          setEditTask={setEditTask}
         />
       </div>
     </div>
