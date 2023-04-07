@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiTwotoneEdit, AiFillDelete } from "react-icons/ai";
+import toast from 'react-hot-toast';
 
 
 const TasksList = ({tasks, setTasks, setEditTask}) => {
@@ -20,12 +21,13 @@ const TasksList = ({tasks, setTasks, setEditTask}) => {
     }
 
     const handleDeleteTask = ({id}) => {
-        setTasks(tasks.filter((task) => task.id !== id))
+        setTasks(tasks.filter((task) => task.id !== id));
+        toast.success('Successfully Deleted')
     };
 
     return (
         <div className=''>
-            <h3 className='text-center text-2xl font-bold my-8 underline'>Tasks</h3>
+            <h3 className='text-center text-2xl font-bold my-8 underline'>Tasks: {tasks.length}</h3>
             {
             tasks.map((task, i) => (
                 <li className='relative list-none' key={task.id}>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import AddATask from './components/AddATask';
 import TasksList from './components/TasksList';
+import  { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
  
   return (
     <div className="">
+      <Toaster position="bottom-center" />
       <header>
         <h1 className='text-3xl font-bold text-center mt-10'>Program Of Operation</h1>
       </header>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {v4 as uuidv4} from 'uuid';
+import toast from 'react-hot-toast';
 
 const AddATask = ({input, setInput, tasks, setTasks, editTask, setEditTask}) => {
 
@@ -28,10 +29,12 @@ const AddATask = ({input, setInput, tasks, setTasks, editTask, setEditTask}) => 
         e.preventDefault();
         if(!editTask){
             setTasks([...tasks, {id: uuidv4(),title: input, completed: false}]);
+            toast.success('Successfully Added')
             setInput('');
         }
         else{
             updateTask(input, editTask.id, editTask.completed)
+            toast.success('Successfully Edited')
         }
     }
 
